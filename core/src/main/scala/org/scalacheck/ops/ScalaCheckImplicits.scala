@@ -1,11 +1,12 @@
 package org.scalacheck.ops
 
 import org.scalacheck.Gen
+import org.scalacheck.ops.time.JavaTimeImplicits
 
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 
-trait ScalaCheckImplicits extends ArbitraryAsGen {
+trait ScalaCheckImplicits extends ArbitraryAsGen with JavaTimeImplicits {
 
   implicit def genToGenOps[T](gen: Gen[T]): GenOps[T] = new GenOps(gen)
 
